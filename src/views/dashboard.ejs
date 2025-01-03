@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <form action="/send-message" method="post">
+    <input type="text" name="chatId" placeholder="Chat ID" required />
+    <input type="text" name="message" placeholder="Mensaje" required />
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    <button type="submit">Enviar Mensaje</button>
+  </form>
+  <a href="/logout">Cerrar sesión</a>
+</body>
+</html>
