@@ -1,27 +1,20 @@
 {
-  "name": "telegram-panel",
+  "name": "public",
   "version": "1.0.0",
-  "description": "Panel de control para bot de Telegram usando Node.js y Express",
-  "main": "dist/server.js",
+  "main": "login.js",
   "scripts": {
-    "start": "node dist/server.js",
-    "build": "tsc"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "csurf": "^1.11.0",
-    "ejs": "^3.1.9",
-    "express": "^4.18.2",
-    "express-session": "^1.17.4",
-    "express-rate-limit": "^6.7.0",
-    "grammy": "^1.11.2",
-    "helmet": "^6.2.3",
-    "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.2.2"
-  },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "discord.js": "^14.17.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-fetch": "^2.7.0"
+  }
 }

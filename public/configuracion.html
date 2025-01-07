@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuración</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="configuracion" class="page">
+    <header>
+      <h1>Configuración</h1>
+      <nav>
+        <ul class="menu horizontal-menu">
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="anuncios.html">Anuncios</a></li>
+          <li><a href="configuracion.html">Configuración</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <p>Introduce las configuraciones necesarias:</p>
+      <form id="configForm">
+        <input type="text" id="discordToken" placeholder="Discord Token" required />
+        <input type="text" id="telegramToken" placeholder="Telegram Token" required />
+        <input type="text" id="discordChannel" placeholder="Discord Channel" required />
+        <input type="text" id="telegramServer" placeholder="Telegram Server" required />
+        <input type="password" id="contraseña" placeholder="Contraseña" required />
+        <button type="submit">Guardar</button>
+      </form>
+    </main>
+  </div>
+</body>
+
+<script>
+  document.getElementById("configForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const discordToken = document.getElementById("discordToken").value;
+    const telegramToken = document.getElementById("telegramToken").value;
+    const discordChannel = document.getElementById("discordChannel").value;
+    const telegramServer = document.getElementById("telegramServer").value;
+    const contraseña = document.getElementById("password").value;
+
+    try {
+      const response = await fetch("/configuracion", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ discordToken, telegramToken, discordChannel, telegramServer, contraseña }),
+      });
+
+      const data = await response.json();
+      alert(data.message);
+    } catch (error) {
+      alert("Error al guardar las configuraciones.");
+      console.error(error);
+    }
+  });
+</script>
+
+</html>
